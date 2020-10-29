@@ -1,0 +1,75 @@
+<h2>{{pageTitle}}</h2>
+<table class="summary-table">
+  <thead>
+    <tr>
+      {{#if (eq orderBy 'billing_country')}}
+        <th class="active-sort {{orderDirection}}">
+          <a href="/invoices/country-summary?order_by=billing_country&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
+            Country
+          </a>
+        </th>
+      {{else}}
+        <th>
+          <a href="/invoices/country-summary?order_by=billing_country&order_direction=ASC">Country</a>
+        </th>
+      {{/if}}
+
+      {{#if (eq orderBy 'avg_total')}}
+        <th class="active-sort {{orderDirection}}">
+          <a href="/invoices/country-summary?order_by=avg_total&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
+            Avg. Total
+          </a>
+        </th>
+      {{else}}
+        <th>
+          <a href="/invoices/country-summary?order_by=avg_total&order_direction=ASC">Avg. Total</a>
+        </th>
+      {{/if}}
+      {{#if (eq orderBy 'gross_total')}}
+        <th class="active-sort {{orderDirection}}">
+          <a href="/invoices/country-summary?order_by=gross_total&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
+            Gross Total
+          </a>
+        </th>
+      {{else}}
+        <th>
+          <a href="/invoices/country-summary?order_by=gross_total&order_direction=ASC">Gross Total</a>
+        </th>
+      {{/if}}
+      {{#if (eq orderBy 'max_total')}}
+        <th class="active-sort {{orderDirection}}">
+          <a href="/invoices/country-summary?order_by=max_total&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
+            Max Total
+          </a>
+        </th>
+      {{else}}
+        <th>
+          <a href="/invoices/country-summary?order_by=max_total&order_direction=ASC">Max Total</a>
+        </th>
+      {{/if}}
+
+      {{#if (eq orderBy 'min_total')}}
+        <th class="active-sort {{orderDirection}}">
+          <a href="/invoices/country-summary?order_by=min_total&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
+            Min Total
+          </a>
+        </th>
+      {{else}}
+        <th>
+          <a href="/invoices/country-summary?order_by=min_total&order_direction=ASC">Min Total</a>
+        </th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+  {{#each summaryData}}
+    <tr>
+      <td>{{this.billing_country}}</td>
+      <td>${{toCents this.avg_total}}</td>
+      <td>${{toCents this.gross_total}}</td>
+      <td>${{toCents this.max_total}}</td>
+      <td>${{toCents this.min_total}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
