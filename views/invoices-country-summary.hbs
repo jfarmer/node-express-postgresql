@@ -2,8 +2,10 @@
 <table class="summary-table">
   <thead>
     <tr>
+      {{!-- This uses the eq helper from expressHelpers.js --}}
       {{#if (eq orderBy 'billing_country')}}
         <th class="active-sort {{orderDirection}}">
+          {{!-- This uses the toggle helper from expressHelpers.js --}}
           <a href="/invoices/country-summary?order_by=billing_country&order_direction={{toggle orderDirection 'ASC' 'DESC'}}">
             Country
           </a>
