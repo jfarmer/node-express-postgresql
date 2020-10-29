@@ -1,3 +1,7 @@
+:root {
+  font-size: 18px;
+}
+
 #content {
   margin: 0 auto;
   max-width: 900px;
@@ -46,20 +50,4 @@
 
 .summary-table tbody tr {
   border-bottom: 1px solid #dddddd;
-}
-
-li {
-  font-size: 12px;
-  width: 300px;
-  margin: 4px;
-  padding: 4px;
-  list-style: none;
-}
-
-.midlaner {
-  background-color: #ffea00;
-}
-
-.toplaner {
-  background-color: #eeeeee;
 }
